@@ -1,17 +1,27 @@
-import { CreatePDF, Sendemail } from '../../Util';
 import { IFile, ISendStatus } from '../../Util/Types';
+import { Client } from 'pg';
+
+const client = new Client({
+    user: "oilfox",
+    password: "oilfox",
+    port: 5432,
+    database: "postgres"
+})
+
 
 const resolvers = {
     Query: {
-        uploads: (_: any, args: File) => { },
+        getAlldevice: (_: any, args: File) => { return true },
     },
     Mutation: {
-        uploadFile: async (_: any, { file }: IFile) => {
-            //Conver the image to buffer then write it into PDF file
-            let pdfFile: any = await CreatePDF(file);
-            // send pdf file as attachment to the mail address
-            let sendStatus: ISendStatus = await Sendemail(process.env.FROM!, process.env.TO!, process.env.SUBJECT!, pdfFile);
-            return sendStatus;
+        getDeviceInfo: async (_: any, { deviceID }: any) => {
+            client.connect()
+            client.query('SELECT * from device', (err, res) => {
+                console.log(err ? err.stack : res.rows)
+                client.end()
+            });
+
+            return true;
         }
     },
 };

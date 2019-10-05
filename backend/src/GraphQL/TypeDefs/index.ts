@@ -1,23 +1,13 @@
 import { gql } from 'apollo-server';
 
 const typeDefs = gql`
-type File {
-  filename: String
-  mimetype: String!
-  encoding: String!
-}
-
-type SendStatus {
-  state: Boolean!
-  message: String!
-}
 
 type Query {
-  uploads: [File]
+  getAlldevice: Boolean!
 }
 
 type Mutation {
-  uploadFile(file: Upload!): SendStatus!
+  getDeviceInfo(deviceID: String!): Boolean!
 }
 `;
 
