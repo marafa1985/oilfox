@@ -1,13 +1,18 @@
 import { gql } from 'apollo-server';
 
 const typeDefs = gql`
-
-type Query {
-  getAlldevice: Boolean!
+type Metering {
+  id: String!
+  hwid: String!
+  value: Float!
+  battery: Float!
 }
-
-type Mutation {
-  getDeviceInfo(deviceID: String!): Boolean!
+type Device {
+  id: String!
+  hwid: Metering!
+}
+type Query {
+  getAlldevice: [Device!]!
 }
 `;
 
