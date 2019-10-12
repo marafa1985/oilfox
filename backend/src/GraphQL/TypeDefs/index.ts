@@ -9,10 +9,11 @@ type Metering {
 }
 type Device {
   id: String!
-  hwid: Metering!
+  metering: Metering!
 }
 type Query {
-  getAlldevice: [Device!]!
+  hello: String
+  DeviceList: [Device!]!
 }
 `;
 

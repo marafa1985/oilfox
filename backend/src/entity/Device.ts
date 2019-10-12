@@ -14,5 +14,5 @@ export class Device extends BaseEntity {
 
     @OneToOne(() => Metering)
     @JoinColumn({ name: "hwid" })
-    hwid: Metering;
+    metering: Metering;
 }

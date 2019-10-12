@@ -1,0 +1,26 @@
+version: '2.1'
+
+services:
+  db:
+    image: postgres:9.6
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  # backend:
+  #       build: ./backend
+  #       ports:
+  #       - "4000:4000"
+  #       environment: 
+  #       - TYPEORM_CONNECTION=postgres
+  #       - TYPEORM_HOST=db
+  #       - TYPEORM_USERNAME=oilfox
+  #       - TYPEORM_PASSWORD=oilfox
+  #       - TYPEORM_DATABASE=postgres
+  #       - TYPEORM_PORT=5432
+  #       - TYPEORM_SYNCHRONIZE=false
+  #       - TYPEORM_LOGGING=false
+  #       - TYPEORM_ENTITIES=src/entity/**/*.ts
+  #       depends_on: 
+  #           - db
