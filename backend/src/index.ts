@@ -7,9 +7,9 @@ const server = new ApolloServer({
   cors: true,
   typeDefs,
   resolvers,
-  cacheControl: true,
+  introspection: true,
+  playground: true,
 })
-
 createConnection().then(() => {
-  server.listen().then(() => console.log('Server is running on http://localhost:4000'));
+  server.listen().then(({url}) => console.log(`Server is running on: ${url}`));
 });

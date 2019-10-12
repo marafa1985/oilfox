@@ -8,7 +8,7 @@ import './App.scss'
 
 const cache = new InMemoryCache();
 const client = new ApolloClient({
-  uri: 'http://localhost:4000',
+  uri: `http://${process.env.REACT_APP_BACKEND_URL}:${process.env.REACT_APP_BACKEND_PORT}`,
   cache
 });
 const App: React.FC = () => {
