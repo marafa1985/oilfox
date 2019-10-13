@@ -4,7 +4,6 @@ import { ResolverMap } from '../../Types/ResolverType';
 
 const resolvers: ResolverMap = {
     Query: {
-        hello: () => "hello World",
         DeviceList: async (_: any) => {
 
             const DeviceList = await Device.createQueryBuilder('device')

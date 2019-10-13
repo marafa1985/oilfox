@@ -12,7 +12,6 @@ type Device {
   metering: Metering!
 }
 type Query {
-  hello: String
   DeviceList: [Device!]!
 }
 `;
