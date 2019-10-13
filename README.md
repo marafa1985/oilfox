@@ -19,15 +19,6 @@ The goal of the application is to allow client to get the infromation from hardw
 
 Based on that requirement, we need to create two, frontend to query the device status, and also get all available devices, and backend which feedback the query from database.
 
-To start the project type the following command to you command line
-
-`docker-compose up -d`
-
-After the command finished installation, you can open browser and goto url:
-
-[http://localhost:3000/](http://localhost:3000/)
-
-
 # Backend
 
 The application developed by [TypeScript](https://www.typescriptlang.org/index.html) with Nodejs, and Implement [Apollo Server](https://www.apollographql.com/docs/apollo-server/), and also uses [TypeORM](https://typeorm.io) to communicate with database.
@@ -113,4 +104,51 @@ type Query {
 ```
 
 # Frontend
+
+The application developed by [TypeScript](https://www.typescriptlang.org/index.html) with React, and also uses [SemanticUI](https://react.semantic-ui.com/), and [Apollo Client](https://www.apollographql.com/docs/react/api/react-hooks/#usemutation) for backend queries.
+
+## Views:
+
+### Devices:
+
+Uses the `@apollo/react-hooks`, to get all devices available from backend.
+
+## Components
+
+### DeviceList:
+
+A component that accept passed devices from Devices View, do the following:
+
+- set default devices `device: this.props.data[0]`
+
+- render DeviceTable Component to show the user all available drives, also you can click "Details button" to get the device information.
+
+- pass selected device to DeviceInfo Component
+
+### DeviceInfo:
+
+it a side Menu that display the device information.
+
+# Test
+
+`npm run test`
+
+## e2e
+
+For e2e Testing you can install [cypress.io](https://www.cypress.io/).
+
+How to use cypress it [https://docs.cypress.io/guides/getting-started/writing-your-first-test.html#Add-a-test-file](https://docs.cypress.io/guides/getting-started/writing-your-first-test.html#Add-a-test-file)
+
+# Ambiguity
+
+No ambiguity
+
+# Deploy
+To start the project type the following command to you command line
+
+`docker-compose up -d`
+
+After the command finished installation, you can open browser and goto url:
+
+[http://localhost:3000/](http://localhost:3000/)
 
