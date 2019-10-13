@@ -114,4 +114,3 @@ type Query {
 
 # Frontend
 
-*Document your implementation here*
